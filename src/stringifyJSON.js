@@ -45,6 +45,8 @@ var stringifyJSON = function (obj) {
     var result = [];
     // convert key and value to strings using function 
     // store results in key temp and value temp 
+    // if type of value is function or undefined 
+      // skip 
     for (var key in obj) {
       if (typeof obj[key] === 'function' || typeof obj[key] === 'undefined') {
         continue;
