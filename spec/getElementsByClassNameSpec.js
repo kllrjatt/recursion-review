@@ -8,11 +8,11 @@ var htmlStrings = [
   '<div><div class="somediv"><div class="innerdiv"><span class="targetClassName">yay</span></div></div></div>'
 ];
 
-describe('getElementsByClassName', function() {
+describe('getElementsByClassName', function () {
 
-  it('should match the results of calling the built-in function', function() {
+  it('should match the results of calling the built-in function', function () {
     $('body').addClass('targetClassName');
-    htmlStrings.forEach(function(htmlString) {
+    htmlStrings.forEach(function (htmlString) {
       var $rootElement = $(htmlString);
       $('body').append($rootElement);
 
