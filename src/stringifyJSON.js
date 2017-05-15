@@ -12,7 +12,7 @@ var stringifyJSON = function (obj) {
   // type of object is a function or undefined 
   // return undefined 
 
-  if (typeof obj === 'function ' || typeof obj === 'undefined') {
+  if (typeof obj === 'function' || typeof obj === 'undefined') {
     return undefined;
     // if type of obejct is number or boolean 
     // convert object to a strin g
@@ -38,6 +38,26 @@ var stringifyJSON = function (obj) {
     return '[' + tempArray.join(',') + ']';
     // if obj is object and not an array 
   } else if (typeof obj === 'object' && !Array.isArray(obj)) {
-    return '{}';
+    // use temp storage for key , value 
+    // use temp array to store key value combos 
+    var keyTemp = [];
+    var valueTemp = [];
+    var result = [];
+    // convert key and value to strings using function 
+      // store results in key temp and value temp 
+    for (var key in obj) {
+      if (typeof obj[key] === 'function' || typeof obj[key] === 'undefined') {
+        return;
+      } else {
+        keyTemp.push(stringifyJSON(key));
+        valueTemp.push(stringifyJSON(obj[key]));
+      }
+    }
+    // join value from key temp and value temp as a string in to result
+    for (var j = 0; j < keyTemp.length; j++) {
+      result.push(keyTemp[j] + ':' + valueTemp[j]);
+    }
+    // join result with a comma and add string culries infront and back.
+    return '{' + result.join(',') + '}';
   }
 };
