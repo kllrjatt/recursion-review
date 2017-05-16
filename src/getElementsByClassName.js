@@ -8,7 +8,7 @@ var getElementsByClassName = function (className) {
   //create a place to store possible nodes - NOTE: getElementsByClassName 
   var allNodes = [];
   // check if document body has the class name
-    // if prsent push document body in all nodes 
+    // if present push document body to all nodes 
   if (document.body.classList.contains(className)) {
     allNodes.push(document.body);
   }
