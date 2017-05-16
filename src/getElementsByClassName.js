@@ -7,13 +7,27 @@
 var getElementsByClassName = function (className) {
   //create a place to store possible nodes - NOTE: getElementsByClassName 
   var allNodes = [];
+  // check if document body has the class name
+    // if prsent push document body in all nodes 
+  if (document.body.classList.contains(className)) {
+    allNodes.push(document.body);
+  }
   // write helper inner recursive function which pushes possible nodes to all nodes array
   var innerRecursion = function (node) {
-    if (node.classList.indexOf(className) > -1) {
-      allNodes.push(node);
-    }
-    for (var i = 0; i < node.childNodes.length; i++) {
-      innerRecursion(node[i]);
+    // check if child nodes have the given class name 
+    var nodeChild = node.childNodes;
+    // itreate through node child to check if class name is present
+    for (var i = 0; i < nodeChild.length; i++) {
+      // if node class is defined and has class name push to all nodes 
+        // node child element has class list , and class list has class name 
+      if (nodeChild[i].classList !== undefined && nodeChild[i].classList.contains(className)) {
+        allNodes.push(nodeChild[i]);
+      }
+      // if node child has children, recurse through the node childre 
+        // node child - child nodes should have a length and should not be undefined 
+      if (nodeChild[i].childNodes.length > 0 && nodeChild[i].classList !== undefined) {
+        innerRecursion(nodeChild[i]);
+      }
     }
   };
 
