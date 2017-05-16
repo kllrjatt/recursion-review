@@ -30,7 +30,6 @@ var getElementsByClassName = function (className) {
       }
     }
   };
-
 // use innerRecusrion function on list of all possible nodes on html page 
   // use document body for all possible nodes 
       // W3 Note : In the HTML DOM (Document Object Model), everything is a node:
