@@ -55,7 +55,6 @@ var stringifyJSON = function (obj) {
         valueTemp.push(stringifyJSON(obj[key]));
       }
     }
-    console.log(keyTemp, valueTemp);
     // join value from key temp and value temp as a string in to result
     for (var j = 0; j < keyTemp.length; j++) {
       result.push(keyTemp[j] + ':' + valueTemp[j]);
